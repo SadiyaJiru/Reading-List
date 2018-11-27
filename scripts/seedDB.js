@@ -22,7 +22,14 @@ const googlebooksSeed = [
     synopsis:
 "Warm, wise, and revelatory, Becoming is the deeply personal reckoning of a woman of soul and substance who has steadily defied expectations—and whose story inspires us to do the same",
     date: new Date(Date.now())
-  }
+  },  
+  {
+    title: "Gone Girl",
+    author: "Gillian Flynn",
+    date: new Date(Date.now())
+
+  
+  },
 ];
 
 //Drop whatever is in the database and then reinsert all of the googlebookss one at a time using the InsertMany method

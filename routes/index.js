@@ -1,16 +1,15 @@
 const router = require("express").Router();
+const path = require("path");
+
 const booksController = require("../../controllers/booksController");
+const apiRoutes = require("./api");
 
-// Matches with "/api/books"
-router.route("/")
-  .get(booksController.findAll)
-  .post(booksController.create);
+//routes specificly just for the API, pass in apiRoutes from routes/api
+router.use("/api", apiRoutes);
 
-// Matches with "/api/books/:id"
-router
-  .route("/:id")
-  .get(booksController.findById)
-  .put(booksController.update)
-  .delete(booksController.remove);
+router.use(function(req, res){
+    //send the react app if no api routes are hit
+res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 module.exports = router;

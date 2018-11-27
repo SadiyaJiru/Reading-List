@@ -6,22 +6,17 @@ var Schema = mongoose.Schema;
 var booksSchema = new Schema({
   // `title` is required and of type String
   title: {
+    required: true,
     type: String,
-    required: true
   },
   Authors: {
+    required: true,
     type: String,  },
 
-    description: {
+    synopsis: {
       type: String,
-      required: true
     },
-    image: {
-      type: String,  },
-
-      link: {
-      type: String,  }
-    
+    date: {type: Date, default: Date.now}
 
 });
 

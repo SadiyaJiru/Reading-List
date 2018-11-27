@@ -6,6 +6,8 @@ import { List, ListItem } from "../components/List";
 import { Input, textArea, submitBtn } from "../components/form";
 //import API
 import API from "../utils/API";
+
+//Pages is the conatiner for the site, which renders the page
 class books extends Component {
   // Initialize this.state.books as an empty array
   state = {
@@ -13,12 +15,11 @@ class books extends Component {
   };
   //This is where AJAX requests and DOM or state updates should occur
   componentDidMount (){
-          // eslint-disable-next-line no-unused-expressions
-          this.returnBooks;
+    this.loadBooks();
   }
-// Add code here to get all books from the database and save them to this.state.books
 //must use async with with await
-returnBooks = async () =>{
+//method to load all the books from get
+loadBooks = async () =>{
   let response ;
   try{
     //getAllBooks is the promise that we are retruning aso await is to be used only with promises 
@@ -26,6 +27,7 @@ returnBooks = async () =>{
   } catch(err){
     console.log(err)
   }
+  //change the state of the books property 
   this.setState({ books: response.data });
 
   }
@@ -41,8 +43,7 @@ returnBooks = async () =>{
             <form>
             <Input for="Title" placeholder="Title" />
             <Input for="Author" placeholder="Author"/>
-            <Input for="Synopsis" placeholder="Synopsis"/>
-   
+            <textArea for="Synopsis" placeholder="Synopsis"/>
               <submitBtn>Submit Book</submitBtn>
             </form>
           </Cols>
