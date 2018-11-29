@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/gridLayout";
-import Jumbotron from "../components/Jumbotron";
+import Jumbotron from "../components/jumbotron";
+
 import API from "../utils/API";
 
 class moreInfo extends Component {

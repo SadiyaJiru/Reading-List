@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/jumbotron";
 import DeleteBtn from "../components/DeleteBtn";
-import { Cols, Rows, Container } from "../components/gridLayout";
-import { List, ListItem } from "../components/List";
+import { Col, Row, Container } from "../components/gridLayout";
+import { List, ListItem } from "../components/list";
 import { Input, TextArea, SubmitBtn } from "../components/form";
 //import API
 import API from "../utils/API";
@@ -67,8 +67,8 @@ this.setState({[name]: value})
   render() {
     return (
       <Container fluid>
-        <Rows>
-          <Cols size="md-6">
+        <Row>
+          <Col size="md-6">
             <Jumbotron>
               <h1>What books Should I Read?</h1>
             </Jumbotron>
@@ -98,8 +98,8 @@ this.setState({[name]: value})
             </SubmitBtn>
             </form>
 
-          </Cols>
-          <Cols size="md-6 sm-12">
+          </Col>
+          <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>books On My List</h1>
             </Jumbotron>
@@ -119,8 +119,8 @@ this.setState({[name]: value})
             ) : (
               <h3>No Results to Display</h3>
             )}
-          </Cols>
-        </Rows>
+          </Col>
+        </Row>
       </Container>
     );
   }

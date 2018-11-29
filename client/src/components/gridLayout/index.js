@@ -1,19 +1,19 @@
 import React from "react";
 
-function Container({fluid,children}){
+export function Container({fluid,children}){
     return(
     <div className={`container${fluid ? "-fluid" : ""}`}>{children}
     </div>
     )
 };
 
-function Rows({fluid,children}){
+export function Row({fluid,children}){
     return(
         <div className={`row${fluid ? "-fluid" : ""}`}>{children}
     </div>
     )
 };
-function Cols({size,children}){
+export function Col({size,children}){
     return(
         <div
         className={size.split(" ")
@@ -24,7 +24,6 @@ function Cols({size,children}){
       </div>
     )
 };
-export default (Rows, Container, Cols);
 
 
 

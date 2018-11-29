@@ -1,7 +1,5 @@
 const router = require("express").Router();
 const path = require("path");
-
-const booksController = require("../../controllers/booksController");
 const apiRoutes = require("./api");
 
 //routes specificly just for the API, pass in apiRoutes from routes/api

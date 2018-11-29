@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/booksControllers");
+const booksController = require("../../controllers/booksControllers.js");
 
 // Same route as saying "/api/books"
 //when the root is hit it will go ahead and find all books using booksController
