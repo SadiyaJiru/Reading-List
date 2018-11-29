@@ -3,7 +3,7 @@ import Jumbotron from "../components/jumbotron";
 import DeleteBtn from "../components/DeleteBtn";
 import { Cols, Rows, Container } from "../components/gridLayout";
 import { List, ListItem } from "../components/List";
-import { Input, textArea, submitBtn } from "../components/form";
+import { Input, TextArea, SubmitBtn } from "../components/form";
 //import API
 import API from "../utils/API";
 
@@ -11,27 +11,59 @@ import API from "../utils/API";
 class books extends Component {
   // Initialize this.state.books as an empty array
   state = {
-    books: []
+    //fields controllers
+    books: [],
+    title: "",
+    author: "",
+    synopsis: ""
   };
   //This is where AJAX requests and DOM or state updates should occur
   componentDidMount (){
     this.loadBooks();
+    this.deleteBtn();
   }
 //must use async with with await
 //method to load all the books from get
-loadBooks = async () =>{
-  let response ;
-  try{
-    //getAllBooks is the promise that we are retruning aso await is to be used only with promises 
-    response = await API.getAllBooks();
-  } catch(err){
-    console.log(err)
-  }
-  //change the state of the books property 
-  this.setState({ books: response.data });
+//reset the form also 
+loadBooks =  () =>{
+  API.getAllBooks()
+  .then(res => this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+  )
+  .catch(err => console.log(err))
+};
 
+// run api.deleteBook api
+deleteBtn = id => {
+API.deleteBooks(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
+
+  //generale handler for forms 
+  handleInputChange = event => {
+const {name, value} =  event.target;
+this.setState({[name]: value})
   }
 
+  handleFormSubmit = event => {
+    //prevent the page from reloading 
+    event.preventDefault();
+    //check to see if there is anything in the fields,
+    //Run API.saveBooks if there is something in the fields and
+    if(this.state.title && this.state.author){
+      API.saveBooks({
+        //pulling off info off the states
+        title: this.state.title,
+        author: this.state.title,
+        synopsis: this.state.title,
+
+      })
+      //Refresh
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+    }
+  }
+//take the value of whatever is in the state for input/author/synopsis
   render() {
     return (
       <Container fluid>
@@ -41,11 +73,31 @@ loadBooks = async () =>{
               <h1>What books Should I Read?</h1>
             </Jumbotron>
             <form>
-            <Input for="Title" placeholder="Title" />
-            <Input for="Author" placeholder="Author"/>
-            <textArea for="Synopsis" placeholder="Synopsis"/>
-              <submitBtn>Submit Book</submitBtn>
+            <Input
+            value ={this.state.title}
+            onChange = {this.handleInputChange}
+            name = "title"
+            placeholder="Title (required)"
+            />
+            <Input
+            value ={this.state.author}
+            onChange = {this.handleInputChange}
+            name = "author"
+            placeholder="Author (required)"
+            />
+            <TextArea
+            value ={this.state.Synopsis}
+            onChange = {this.handleInputChange}
+            name = "Synopsis"
+            placeholder="Synopsis (required)"
+            />
+            <SubmitBtn
+            disabled ={!(this.state.author && this.state.title)}
+            onClick = {this.handleFormSubmit}
+            > Submit Book
+            </SubmitBtn>
             </form>
+
           </Cols>
           <Cols size="md-6 sm-12">
             <Jumbotron>
@@ -60,7 +112,7 @@ loadBooks = async () =>{
                         {book.title} by {book.author}
                       </strong>
                     </a>
-                    <DeleteBtn />
+                      <DeleteBtn onClick={() => this.deleteBooks(book._id)} />
                   </ListItem>
                 ))}
               </List>

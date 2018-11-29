@@ -7,7 +7,7 @@ export function Input(props){
     </div>
     );
 }
-export function textArea(props){
+export function TextArea(props){
     return(
          <div className ="form-group">
          <textArea className = "form-control " rows="25" {...props}/>
@@ -15,7 +15,7 @@ export function textArea(props){
     </div>
     );
 }
-export function submitBtn(props){
+export function SubmitBtn(props){
     return(
         <button {...props} style={{ float: "left", marginBottom: 10 }} className="btn btn-success">
         {props.children}
