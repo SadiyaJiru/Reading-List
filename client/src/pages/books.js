@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/jumbotron";
-import DeleteBtn from "../components/DeleteBtn";
-import { Col, Row, Container } from "../components/gridLayout";
-import { List, ListItem } from "../components/list";
-import { Input, TextArea, SubmitBtn } from "../components/form";
 //import API
 import API from "../utils/API";
+import DeleteBtn from "../components/DeleteBtn";
+import { Col, Row, Container } from "../components/gridLayout";
+import { List, ListItem } from "../components/List";
+import { Input, TextArea, SubmitBtn } from "../components/form";
+
 
 //Pages is the conatiner for the site, which renders the page
 class books extends Component {
@@ -20,7 +21,7 @@ class books extends Component {
   //This is where AJAX requests and DOM or state updates should occur
   componentDidMount (){
     this.loadBooks();
-    this.deleteBtn();
+    console.log("componentDidMount")
   }
 //must use async with with await
 //method to load all the books from get
@@ -30,10 +31,11 @@ loadBooks =  () =>{
   .then(res => this.setState({ books: res.data, title: "", author: "", synopsis: "" })
   )
   .catch(err => console.log(err))
+  console.log("books loaded")
 };
 
 // run api.deleteBook api
-deleteBtn = id => {
+DeleteBtn = id => {
 API.deleteBooks(id)
       .then(res => this.loadBooks())
       .catch(err => console.log(err));
@@ -42,7 +44,7 @@ API.deleteBooks(id)
   //generale handler for forms 
   handleInputChange = event => {
 const {name, value} =  event.target;
-this.setState({[name]: value})
+this.setState({[name]: value});
   }
 
   handleFormSubmit = event => {
@@ -54,8 +56,8 @@ this.setState({[name]: value})
       API.saveBooks({
         //pulling off info off the states
         title: this.state.title,
-        author: this.state.title,
-        synopsis: this.state.title,
+        author: this.state.author,
+        synopsis: this.state.synopsis,
 
       })
       //Refresh
@@ -86,10 +88,10 @@ this.setState({[name]: value})
             placeholder="Author (required)"
             />
             <TextArea
-            value ={this.state.Synopsis}
+            value ={this.state.synopsis}
             onChange = {this.handleInputChange}
-            name = "Synopsis"
-            placeholder="Synopsis (required)"
+            name = "synopsis"
+            placeholder="Synopsis (optional)"
             />
             <SubmitBtn
             disabled ={!(this.state.author && this.state.title)}

@@ -8,8 +8,7 @@ router.route("/")
   .post(booksController.create);
 
 //Same as "/api/books/:id"
-router
-  .route("/:id")
+router.route("/:id")
   .get(booksController.findById)
   .put(booksController.update)
   .delete(booksController.remove);

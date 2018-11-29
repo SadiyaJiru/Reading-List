@@ -7,35 +7,35 @@ const db = require("../models");
 module.exports = {
   //req & res are the callbacks for the routes
   findAll: function(req, res) {
-    db.Book
-     //find all books and sort descending order of date added
+    db.googlebooks
+     //find all googlebookss and sort descending order of date added
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  //Find books by the ID
+  //Find googlebookss by the ID
   findById: function(req, res) {
-    db.Book
+    db.googlebooks
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   //
   create: function(req, res) {
-    db.Book
+    db.googlebooks
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Book
+    db.googlebooks
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Book
+    db.googlebooks
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

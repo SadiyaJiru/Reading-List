@@ -29,6 +29,12 @@ const googlebooksSeed = [
     date: new Date(Date.now())
 
   
+  }, {
+    title: "Windixie",
+    author: "Some Author",
+    date: new Date(Date.now())
+
+  
   },
 ];
 
