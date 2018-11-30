@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/books";
-import Nav from "../src/components/Nav/index";
+import Nav from "./components/Nav";
 import MoreInfo from "./pages/moreInfo";
 import NoMatch from "./pages/NoMatch";
 
