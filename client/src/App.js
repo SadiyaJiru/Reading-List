@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/books";
-import Nav from "./components/Nav";
 import MoreInfo from "./pages/moreInfo";
 import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
 
 //Using Switch` component from the React Router Dom library
 function App() {
