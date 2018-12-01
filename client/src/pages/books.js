@@ -4,7 +4,7 @@ import Jumbotron from "../components/jumbotron";
 import API from "../utils/API";
 import DeleteBtn from "../components/DeleteBtn";
 import { Col, Row, Container } from "../components/gridLayout";
-import { List, ListItem } from "../components/List";
+import { List, ListItem } from "../components/list";
 import { Input, TextArea, SubmitBtn } from "../components/form";
 
 
