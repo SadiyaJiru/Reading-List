@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/books";
 import MoreInfo from "./pages/moreInfo";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import Nav from "./components/nav";
 
 //Using Switch` component from the React Router Dom library
 function App() {
