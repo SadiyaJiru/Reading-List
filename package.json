@@ -20,11 +20,9 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
- 
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongo": "^0.1.0",
     "mongoose": "^5.3.13"
-   
   }
 }
