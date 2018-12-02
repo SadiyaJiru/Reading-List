@@ -1,22 +1,20 @@
 import axios from "axios";
 //API wraper
 export default {
-    //return all of the books
-    getBook: function(){
-        return axios.get("/api/books")
-    },
-    //return books by the ID
-    getBooksID:function(id){
-        return axios.get("/api/books/" + id)
-    },
-    //save/Post new books to database
-    saveBooks: function(booksData) {
-        return axios.post("/api/books", booksData)
-    },
-     //delete books from the DB by ID
-     deleteBooks: function(id){
-        return axios.delete("/api/books/" + id )
-
-    }
-
-};
+  // Gets all books
+  getBooks: function() {
+    return axios.get("/api/books");
+  },
+  // Gets the book with the given id
+  getBook: function(id) {
+    return axios.get("/api/books/" + id);
+  },
+  // Deletes the book with the given id
+  deleteBook: function(id) {
+    return axios.delete("/api/books/" + id);
+  },
+  // Saves a book to the database
+  saveBook: function(bookData) {
+    return axios.post("/api/books", bookData);
+  }
+}
