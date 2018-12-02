@@ -3,7 +3,7 @@ import { Col, Row, Container } from "../components/gridLayout";
 import Jumbotron from "../components/jumbotron";
 
 //This should only render if no other routes are matched.
-function NoMatch() {
+function noMatch() {
   return (
     <Container fluid>
       <Row>
@@ -22,4 +22,4 @@ function NoMatch() {
   );
 }
 
-export default NoMatch;
+export default noMatch;
