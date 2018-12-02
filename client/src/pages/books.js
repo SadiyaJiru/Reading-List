@@ -3,7 +3,6 @@ import Jumbotron from "../components/jumbotron";
 //import API
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-
 import DeleteBtn from "../components/DeleteBtn";
 import { Col, Row, Container } from "../components/gridLayout";
 import { List, ListItem } from "../components/list";
