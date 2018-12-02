@@ -9,10 +9,10 @@ module.exports = {
   findAll: function(req, res) {
     db.googlebooks
      //find all googlebookss and sort descending order of date added
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+     .find(req.query)
+     .sort({ date: -1 })
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
   },
   //Find googlebookss by the ID
   findById: function(req, res) {

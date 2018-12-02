@@ -2,7 +2,7 @@ import axios from "axios";
 //API wraper
 export default {
     //return all of the books
-    getAllBooks: function(){
+    getBook: function(){
         return axios.get("/api/books")
     },
     //return books by the ID

@@ -30,8 +30,8 @@ const googlebooksSeed = [
 
   
   }, {
-    title: "Windixie",
-    author: "Some Author",
+    title: "Black Privledge",
+    author: "C tha God",
     date: new Date(Date.now())
 
   

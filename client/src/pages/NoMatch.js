@@ -1,6 +1,6 @@
 import React from "react";
-import { Col, Row, Container } from "../components/gridLayout";
-import Jumbotron from "../components/jumbotron";
+import { Col, Row, Container } from "../components/GridLayout";
+import Jumbotron from "../components/Jumbotron";
 
 //This should only render if no other routes are matched.
 function NoMatch() {
