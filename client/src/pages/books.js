@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
+import Jumbotron from "../components/jumbotron";
 //import API
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 
 import DeleteBtn from "../components/DeleteBtn";
-import { Col, Row, Container } from "../components/GridLayout";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, SubmitBtn } from "../components/Form";
+import { Col, Row, Container } from "../components/gridLayout";
+import { List, ListItem } from "../components/list";
+import { Input, TextArea, SubmitBtn } from "../components/form";
 
 
 //Pages is the conatiner for the site, which renders the page
